@@ -1,1 +1,1 @@
-posmotri-v-okno-south
+https://github.com/Southhhhhh-tech/posmotri-v-okno-fd
