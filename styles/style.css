@@ -69,12 +69,6 @@ button {
   -webkit-appearance: none;
 }
 
-button:focus, 
-input:focus, 
-a:focus {
-  outline: none;
-}
-
 .content {
   display: flex;
   align-items: center;
@@ -129,11 +123,47 @@ a:focus {
   border: none;
 }
 
+.search-form__textfield {
+  font-size: inherit;
+  font-family: inherit;
+  border: 1px solid white;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  width: 100%;
+  color: inherit;
+}
+
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.7);
+}
+
 .search-form__checkbox-list {
   display: flex;
   column-gap: 10px;
 }
 
+.search-form__pseudo-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  padding: 1px;
+}
+
+.search-form__pseudo-checkbox::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+}
+
+.search-form__checkbox:checked+.search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+/*
 .search-form__pseudo-checkbox {
   width: 20px;
   height: 20px;
@@ -144,24 +174,12 @@ a:focus {
 
 .search-form__checkbox:checked+.search-form__pseudo-checkbox {
   background-color: white;
-}
+}*/
 
 .search-form__label:has(.search-form__checkbox) {
   display: flex;
   width: 100%;
   column-gap: 5px;
-}
-
-.search-form__textfield {
-  font-size: inherit;
-  font-family: inherit;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  border-left: none;
-  border-right: none;
-  background-color: transparent;
-  width: 100%;
-  color: inherit;
 }
 
 .button {
@@ -178,7 +196,7 @@ a:focus {
   outline: none;
 }
 
-.search-form__textfield:focus-within,
+.search-form__textfield:focus-visible,
 .button:focus-visible,
 .search-form__label:has(.search-form__checkbox:focus-visible),
 .content__list-item:has(.content__card-link:focus-visible) {
@@ -258,13 +276,13 @@ a:focus {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 195px; 
+  max-width: 195px;
 }
 
 .content__video-card-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; 
+  -webkit-line-clamp: 3;
   line-height: 16px;
   overflow: hidden;
 }
